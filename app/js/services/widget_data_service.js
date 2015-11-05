@@ -20,14 +20,16 @@
     /**
      * @method getReviews
      * @desc get specific review data based on id
-     * @param {String} id - id of review data to fetch
+     * @param {String} id - id field of review data to fetch
      * @returns {*}
      */
     service.getReviews = function(id) {
       var deferred = $q.defer();
 
-      $http.get(AppSettings.reviewsApi + '/' + id).success(function(data) {
-        deferred.resolve(data);
+      $http.get(AppSettings.jsonApi).success(function(data) {
+        // reference reviews data from id field
+        var reviews = data[id]['reviews'];
+        deferred.resolve(reviews);
       }).error(function(err, status) {
         deferred.reject(err, status);
       });

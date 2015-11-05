@@ -2,7 +2,8 @@
 
 var AppSettings = {
   appTitle: 'Angular Trend Widget Example',
-  reviewsApi : '/api/reviews'
+  reviewsApi : '/api/reviews',
+  jsonApi : '../data/api.json'
 };
 
 module.exports = AppSettings;
