@@ -1,0 +1,128 @@
+@import "vars";
+@import "mixins";
+
+div[tp-trend-widget] {
+  width: rem-calc(260px);
+  height: rem-calc(450px);
+  margin: 0 auto;
+  padding: rem-calc(10px 10px 20px 10px);
+  background: white;
+
+  p {
+    font-size: rem-calc(16px);
+    line-height: rem-calc(15px);
+  }
+  
+  div#logo-wrap {
+    margin: rem-calc(0 0 10px 0);
+    padding: 0;
+
+    img {
+      display: block;
+      width: rem-calc(260px);
+      height: rem-calc(105px);
+    }
+  }
+
+  p#callout-txt {
+    width: auto;
+    margin: rem-calc(0 0 5px 0);
+    text-align: center;
+  }
+
+  div#tab-pointer-wrap {
+    height: rem-calc(10px);
+    margin-bottom: rem-calc(5px);
+    line-height: 0;
+    text-align: center;
+
+    div[class^="#{$tab-pointer-class}"] {
+      //position: absolute;
+      width: rem-calc($star-tab-dimension);
+      height: rem-calc(10px);
+      overflow: hidden;
+      text-align: center;
+      display: inline-block;
+      padding: rem-calc(0 $star-tab-spacing 0 0);
+      &:last-child {
+        padding: 0;
+      }
+
+      i:before {
+        line-height: rem-calc(10px);
+        font-size: rem-calc(20px);
+      }
+    }
+  } // div#tab-pointer-wrap
+
+  div#star-tabs-wrap {
+    margin-bottom: rem-calc(17px);
+    text-align: center;
+
+    ul{
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      font-size: 0; // get rid of blank space between li tags
+
+      li {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        margin-right: rem-calc($star-tab-spacing);
+        &:last-child {
+          margin-right: 0;
+        }
+
+        // loop to set sprites for star tabs
+        @for $i from 1 through 5 {
+          // ex. <li class="star-tab-1"><a>...
+          &.#{$star-tab-class}-#{$i} a {
+            background-position: -(rem-calc($star-tab-dimension) * ($i - 1) ) 0;
+          }
+        }
+
+        a {
+          margin: 0;
+          padding: 0;
+          width: rem-calc($star-tab-dimension);
+          height: rem-calc($star-tab-dimension);
+          display: block;
+          outline: 0;
+          background: url("#{$star-tabs-path}") no-repeat;
+          background-size: cover;
+          box-shadow: 0 rem-calc(3px) rem-calc(3px) rem-calc(-3px) white;
+          &.selected {
+            box-shadow: 0 rem-calc(3px) rem-calc(3px) rem-calc(-3px) black;
+          } // .selected
+        } // li a
+      } // li
+    }// ul
+  }// star-tabs-wrap
+
+  p#stats {
+    margin: rem-calc(0 0 10px 0);
+    width: auto;
+    text-align: center;
+  }
+
+  div#gauge-wrap {
+    width: rem-calc($gauge-dimension);
+    height: rem-calc($gauge-dimension);
+    margin: 0 auto;
+    padding: 0;
+
+    svg {
+      // override inline to avoid overlap on text zoom
+      width: rem-calc($gauge-dimension) !important;
+      height: rem-calc($gauge-dimension) !important;
+    }
+  }
+} // div[tp-trend-widget]
+
+// Fix small font-icon font-size in IE / Edge browsers
+@include apply-to-ie-browsers {
+  div[tp-trend-widget] div[class^="#{$tab-pointer-class}"] {
+    font-size: rem-calc(40px) !important;
+  }
+}
