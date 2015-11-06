@@ -1,6 +1,6 @@
 # NG Trend Widget
 
-## Example project of a AngularJS app
+## Example project of an AngularJS widget app
 
 ### Usage (from terminal)
 
