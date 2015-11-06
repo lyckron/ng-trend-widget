@@ -1,8 +1,8 @@
 {
   "name": "ng-trend-widget",
   "version": "0.1.0",
-  "author": "Mark B. Refsing <jakemmarsh@gmail.com>",
-  "description": "Angular Widget based on angularjs-gulp-browserify-boilerplate",
+  "author": "Mark B. Refsing <lyckron@gmail.com>",
+  "description": "Angular Widget app based on angularjs-gulp-browserify-boilerplate",
   "repository": {
     "type": "",
     "url": ""
