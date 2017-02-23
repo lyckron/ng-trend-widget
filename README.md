@@ -2,7 +2,7 @@
 
 ## Example project of an AngularJS widget app
 
-### [Demo](http://lyckron.github.io/ng-trend-widget/)
+### [Demo](http://markbref.github.io/ng-trend-widget/)
 
 
 ### Usage (from terminal)
